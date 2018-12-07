@@ -7,10 +7,10 @@ import json
 def index(request):
     bucket_list = []
     down_url = 'string'
-    aws_key = 'AKIAJ77C6WP4LQMH3P2A'
-    aws_secret = '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'
+    aws_key = 'xxx'
+    aws_secret = 'xxx'
     session = Session(aws_access_key_id=aws_key,
-                      aws_secret_access_key=aws_secret, region_name='us-east-2')
+                      aws_secret_access_key=aws_secret, region_name='xxx')
     s3 = session.resource('s3')
     client = session.client('s3')
     if request.method == "POST":
