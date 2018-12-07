@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script type="text/javascript">
+        function checkURL() {
+            var url = {};
+            url = {{ url | safe }};
+            return document.getElementById("url").innerHTML = url;
+        }
+    </script>
+</head>
+
+<body>
+<form action="/index/" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+    <h1 style="text-align:center;color:black;">我的小Demo</h1>
+    <h2 style="background:grey;color:white;">选择文件</h2>
+    <input type="file" name="btn_file"/>
+    <h2 style="background:grey;color:white;">输入桶</h2>
+    <input type="text" name="bucket"/>
+    <input type="submit" name="submit" value="上传"/>
+</form>
+
+<h2 style="background:grey;color:white;">桶列表</h2>
+<table border="1">
+    <thead>
+        <th>buckets</th>
+    </thead>
+    <tbody>
+        {% for line in name %}
+            <tr>
+                <td>{{ line }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2 style="background:grey;color:white;">URL</h2>
+<button onclick="checkURL()">查看</button>
+<p id="url"></p>
+<script src="{% static "jquery-1.12.4.js"%}"></script>
+</body>
+</html>
